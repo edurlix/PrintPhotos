@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Editor de Fotos para Visado</title>
+</head>
+<body>
+    <div class="container no-print">
+        <h1>📷 Editor de Fotos para Visado</h1>
+        
+        <div class="upload-section">
+            <h3>Sube tu foto de pasaporte</h3>
+            <input type="file" id="photoUpload" accept="image/*">
+            <label for="photoUpload" class="file-upload-label">Seleccionar archivo</label>
+            <p style="margin-top: 10px; color: #B13BFF;">Arrastra y suelta tu foto aquí</p>
+        </div>
+        
+        <div class="controls no-print">
+            <button id="clearAll">🔄 Limpiar todo</button>
+            <button id="printTemplate">🖨️ Imprimir plantilla</button>
+        </div>
+        
+        <h2>Previsualización de Fotos</h2>
+        <div class="preview-section no-print" id="previewSection">
+            <!-- Las 6 fotos se añadirán aquí -->
+        </div>
+    </div>
+
+    <div class="print-template" id="printTemplateDiv">
+        <div id="printPhotos"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

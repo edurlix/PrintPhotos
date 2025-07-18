@@ -1,0 +1,141 @@
+/* Estilos para la aplicación */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #090040;
+    color: white;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.upload-section {
+    border: 2px dashed #B13BFF;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #471396;
+}
+.preview-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    background-color: #471396;
+    padding: 15px;
+    border-radius: 10px;
+}
+.photo-slot {
+    border: 2px solid #FFCC00;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    background-color: #090040;
+    border-radius: 5px;
+}
+.photo-slot img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.controls {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+button {
+    padding: 12px 20px;
+    background-color: #B13BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: 2px solid #FFCC00;
+}
+button:hover {
+    background-color: #FFCC00;
+    color: #090040;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+h1, h2, h3 {
+    color: #FFCC00;
+    text-align: center;
+}
+h1 {
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+input[type="file"] {
+    display: none;
+}
+.file-upload-label {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #FFCC00;
+    color: #090040;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+.file-upload-label:hover {
+    background-color: #B13BFF;
+    color: white;
+}
+.print-template {
+    display: none;
+}
+
+/* Estilos específicos para impresión */
+@media print {
+    body * {
+        visibility: hidden;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .print-template, .print-template * {
+        visibility: visible;
+    }
+    .print-template {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6in !important;
+        height: 4in !important;
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+    #printPhotos {
+        width: 6in !important;
+        height: 4in !important;
+        display: grid !important;
+        grid-template-columns: repeat(3, 2in) !important;
+        grid-template-rows: repeat(2, 2in) !important;
+        gap: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .print-photo {
+        width: 2in !important;
+        height: 2in !important;
+        object-fit: cover !important;
+    }
+    
+    @page {
+        size: 6in 4in landscape;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
