@@ -44,8 +44,8 @@
                         img.onload = function() {
                             // Crear canvas para redimensionar a 1.77x1.38 pulgadas (531x414px a 300dpi)
                             const canvas = document.createElement('canvas');
-                            canvas.width = 531;  // 1.77in * 300dpi
-                            canvas.height = 414;  // 1.38in * 300dpi
+                            canvas.width = 414;  // 1.77in * 300dpi
+                            canvas.height = 531;  // 1.38in * 300dpi
                             const ctx = canvas.getContext('2d');
                             
                             // Calcular dimensiones para mantener relación de aspecto 1.77:1.38
