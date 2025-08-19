@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const photoUpload = document.getElementById('photoUpload');
             const clearAllBtn = document.getElementById('clearAll');
             const printTemplateBtn = document.getElementById('printTemplate');
@@ -42,26 +42,32 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Crear imagen para redimensionar
                         const img = new Image();
                         img.onload = function() {
-                            // Crear canvas para redimensionar a 2x2 pulgadas (600x600px a 300dpi)
+                            // Crear canvas para redimensionar a 1.77x1.38 pulgadas (531x414px a 300dpi)
                             const canvas = document.createElement('canvas');
-                            canvas.width = 600;
-                            canvas.height = 600;
+                            canvas.width = 531;  // 1.77in * 300dpi
+                            canvas.height = 414;  // 1.38in * 300dpi
                             const ctx = canvas.getContext('2d');
                             
-                            // Calcular dimensiones para mantener relación de aspecto
+                            // Calcular dimensiones para mantener relación de aspecto 1.77:1.38
+                            const targetRatio = 1.77 / 1.38;
+                            const sourceRatio = img.width / img.height;
+                            
                             let sourceX = 0, sourceY = 0, sourceWidth = img.width, sourceHeight = img.height;
                             
-                            // Ajustar para recorte cuadrado
-                            if (img.width > img.height) {
-                                sourceX = (img.width - img.height) / 2;
-                                sourceWidth = img.height;
+                            if (sourceRatio > targetRatio) {
+                                // La imagen es más ancha que el objetivo
+                                sourceHeight = img.height;
+                                sourceWidth = img.height * targetRatio;
+                                sourceX = (img.width - sourceWidth) / 2;
                             } else {
-                                sourceY = (img.height - img.width) / 2;
-                                sourceHeight = img.width;
+                                // La imagen es más alta que el objetivo
+                                sourceWidth = img.width;
+                                sourceHeight = img.width / targetRatio;
+                                sourceY = (img.height - sourceHeight) / 2;
                             }
                             
                             // Dibujar imagen recortada y redimensionada
-                            ctx.drawImage(img, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, 600, 600);
+                            ctx.drawImage(img, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, 531, 414);
                             
                             const resizedImage = canvas.toDataURL('image/jpeg');
                             
@@ -125,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
                 
-                // Crear las 6 fotos para imprimir (3 columnas × 2 filas)
+                // Crear las 6 fotos para imprimir
                 for (let i = 0; i < 6; i++) {
                     if (currentPhotos[i]) {
                         const img = document.createElement('img');
