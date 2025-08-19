@@ -67,7 +67,7 @@
                             }
                             
                             // Dibujar imagen recortada y redimensionada
-                            ctx.drawImage(img, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, 531, 414);
+                            ctx.drawImage(img, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, 414, 531);
                             
                             const resizedImage = canvas.toDataURL('image/jpeg');
                             
