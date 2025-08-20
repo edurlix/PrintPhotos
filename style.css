@@ -192,16 +192,23 @@
         }
         
         @media print {
-            body * {
-                visibility: hidden;
+            body > *:not(#print-template) {
+                display: none;
             }
-            .print-template, .print-template * {
-                visibility: visible;
+
+            #print-template {
+                display: block !important;
+                width: 6in;
+                height: 4in;
+                margin: auto;
+                position: relative;
             }
-            .print-template {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
+            #print-template img {
+                width: 2in;
+                height: 2in;
+                padding: 0;
+                margin: 0;
+                object-fit: contain;
+                border: 1px solid #000;
             }
         }
