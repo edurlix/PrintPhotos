@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const applyCropBtn = document.getElementById('applyCrop');
     const addToTemplateBtn = document.getElementById('addToTemplate');
     const clearAllBtn = document.getElementById('clearAll');
-    const printTemplateBtn = document.getElementById('printTemplate');
+    const printTemplateBtn = document.getElementById('printBtn');
     const previewGrid = document.getElementById('previewGrid');
     const printPhotos = document.getElementById('printPhotos');
     const cropWidthInput = document.getElementById('cropWidth');
