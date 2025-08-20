@@ -7,28 +7,68 @@
     <title>Editor de Fotos para Visado</title>
 </head>
 <body>
-    <div class="container no-print">
-        <h1>📷 Editor de Fotos para Visado</h1>
+    <div class="container">
+        <header>
+            <h1>Editor de Fotos para Visado</h1>
+            <p class="subtitle">Sube tu foto, ajusta el tamaño y crea tu plantilla de impresión</p>
+        </header>
         
-        <div class="upload-section">
-            <h3>Sube tu foto de pasaporte</h3>
-            <input type="file" id="photoUpload" accept="image/*">
-            <label for="photoUpload" class="file-upload-label">Seleccionar archivo</label>
-            <p style="margin-top: 10px; color: #B13BFF;">Arrastra y suelta tu foto aquí</p>
-        </div>
-        
-        <div class="controls no-print">
-            <button id="clearAll">🔄 Limpiar todo</button>
-            <button id="printTemplate">🖨️ Imprimir plantilla</button>
-        </div>
-        
-        <h2>Previsualización de Fotos</h2>
-        <div class="preview-section no-print" id="previewSection">
-            <!-- Las 6 fotos se añadirán aquí -->
+        <div class="main-content">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📷</div>
+                    <h3>Sube tu foto</h3>
+                    <p>Haz clic o arrastra una imagen aquí</p>
+                    <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+                </div>
+                
+                <div class="crop-controls">
+                    <h3>Ajustar Tamaño de Recorte</h3>
+                    <div class="size-inputs">
+                        <div class="input-group">
+                            <label for="cropWidth">Ancho (pulgadas)</label>
+                            <input type="number" id="cropWidth" min="1" max="4" step="0.01" value="1.38">
+                        </div>
+                        <div class="input-group">
+                            <label for="cropHeight">Alto (pulgadas)</label>
+                            <input type="number" id="cropHeight" min="1" max="4" step="0.01" value="1.77">
+                        </div>
+                    </div>
+                    <button id="applyCrop">Aplicar Tamaño de Recorte</button>
+                </div>
+                
+                <div class="crop-container">
+                    <img id="imageToCrop">
+                </div>
+                
+                <div class="controls">
+                    <button id="addToTemplate">Agregar a Plantilla</button>
+                    <button id="clearAll">Limpiar Todo</button>
+                </div>
+            </div>
+            
+            <div class="preview-section">
+                <h2>Previsualización de Plantilla</h2>
+                <p>6 fotos para imprimir en papel 4x6 pulgadas</p>
+                
+                <div class="preview-grid" id="previewGrid">
+                    <div class="photo-slot">1</div>
+                    <div class="photo-slot">2</div>
+                    <div class="photo-slot">3</div>
+                    <div class="photo-slot">4</div>
+                    <div class="photo-slot">5</div>
+                    <div class="photo-slot">6</div>
+                </div>
+                
+                <div class="print-section">
+                    <p class="print-info">Tamaño de cada foto: <span id="sizeInfo">1.38" x 1.77"</span></p>
+                    <button id="printTemplate">Imprimir Plantilla</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="print-template" id="printTemplateDiv">
+    <div class="print-template" id="printTemplate" style="display: none;">
         <div id="printPhotos"></div>
     </div>
     <script src="app.js"></script>
