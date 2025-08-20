@@ -1,214 +1,215 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #090040 0%, #471396 100%);
-            color: white;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(71, 19, 150, 0.8);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: rgba(177, 59, 255, 0.2);
-            border-radius: 10px;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #FFCC00;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #B13BFF;
-        }
-        
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .upload-section {
-            background: rgba(9, 0, 64, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px dashed #B13BFF;
-            text-align: center;
-        }
-        
-        .upload-area {
-            padding: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .upload-area:hover {
-            background: rgba(177, 59, 255, 0.2);
-        }
-        
-        .upload-icon {
-            font-size: 3rem;
-            color: #FFCC00;
-            margin-bottom: 15px;
-        }
-        
-        .crop-controls {
-            margin-top: 20px;
-            background: rgba(255, 204, 0, 0.1);
-            padding: 15px;
-            border-radius: 8px;
-        }
-        
-        .size-inputs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .input-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        label {
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #FFCC00;
-        }
-        
-        input[type="number"] {
-            padding: 10px;
-            border: 2px solid #B13BFF;
-            border-radius: 5px;
-            background: rgba(9, 0, 64, 0.8);
-            color: white;
-        }
-        
-        .crop-container {
-            margin-top: 20px;
-            max-width: 100%;
-        }
-        
-        #imageToCrop {
-            max-width: 100%;
-            display: block;
-        }
-        
-        .preview-section {
-            background: rgba(9, 0, 64, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px solid #FFCC00;
-        }
-        
-        .preview-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .photo-slot {
-            border: 2px solid #B13BFF;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: rgba(9, 0, 64, 0.9);
-            border-radius: 5px;
-        }
-        
-        .photo-slot img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-        
-        .controls {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
-        }
-        
-        button {
-            padding: 12px 25px;
-            background: linear-gradient(to right, #B13BFF, #471396);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s;
-            border: 2px solid #FFCC00;
-        }
-        
-        button:hover {
-            background: linear-gradient(to right, #FFCC00, #B13BFF);
-            color: #090040;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .print-section {
-            margin-top: 30px;
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 204, 0, 0.1);
-            border-radius: 10px;
-        }
-        
-        .print-info {
-            margin: 15px 0;
-            color: #FFCC00;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 900px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media print {
-            body > *:not(#print-template) {
-                display: none;
-            }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            #print-template {
-                display: block !important;
-                width: 6in;
-                height: 4in;
-                margin: auto;
-                position: relative;
-            }
-            #print-template img {
-                width: 2in;
-                height: 2in;
-                padding: 0;
-                margin: 0;
-                object-fit: contain;
-                border: 1px solid #000;
-            }
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #090040 0%, #471396 100%);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(71, 19, 150, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(177, 59, 255, 0.2);
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #FFCC00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #B13BFF;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.upload-section {
+    background: rgba(9, 0, 64, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #B13BFF;
+    text-align: center;
+}
+
+.upload-area {
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.upload-area:hover {
+    background: rgba(177, 59, 255, 0.2);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #FFCC00;
+    margin-bottom: 15px;
+}
+
+.crop-controls {
+    margin-top: 20px;
+    background: rgba(255, 204, 0, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.size-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #FFCC00;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 2px solid #B13BFF;
+    border-radius: 5px;
+    background: rgba(9, 0, 64, 0.8);
+    color: white;
+}
+
+.crop-container {
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+#imageToCrop {
+    max-width: 100%;
+    display: block;
+}
+
+.preview-section {
+    background: rgba(9, 0, 64, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #FFCC00;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.photo-slot {
+    border: 2px solid #B13BFF;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: rgba(9, 0, 64, 0.9);
+    border-radius: 5px;
+}
+
+.photo-slot img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(to right, #B13BFF, #471396);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s;
+    border: 2px solid #FFCC00;
+}
+
+button:hover {
+    background: linear-gradient(to right, #FFCC00, #B13BFF);
+    color: #090040;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.print-section {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 204, 0, 0.1);
+    border-radius: 10px;
+}
+
+.print-info {
+    margin: 15px 0;
+    color: #FFCC00;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reglas de impresión mejoradas */
+@media print {
+    body > *:not(#print-container) {
+        display: none;
+    }
+
+    #print-container {
+        display: block !important;
+        width: 6in;
+        height: 4in;
+        margin: auto;
+        position: relative;
+    }
+    #print-container img {
+        width: 2in;
+        height: 2in;
+        padding: 0;
+        margin: 0;
+        object-fit: contain;
+        border: 1px solid #000;
+    }
+}

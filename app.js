@@ -6,9 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const applyCropBtn = document.getElementById('applyCrop');
     const addToTemplateBtn = document.getElementById('addToTemplate');
     const clearAllBtn = document.getElementById('clearAll');
-    const printTemplateBtn = document.getElementById('printBtn');
+    const printBtn = document.getElementById('printBtn');
     const previewGrid = document.getElementById('previewGrid');
-    const printPhotos = document.getElementById('printPhotos');
     const cropWidthInput = document.getElementById('cropWidth');
     const cropHeightInput = document.getElementById('cropHeight');
     const sizeInfo = document.getElementById('sizeInfo');
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     clearAllBtn.addEventListener('click', clearAll);
     
     // Imprimir plantilla
-    printTemplateBtn.addEventListener('click', printTemplate);
+    printBtn.addEventListener('click', printTemplate);
     
     // Actualizar información de tamaño
     cropWidthInput.addEventListener('change', updateSizeInfo);
@@ -161,46 +160,28 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Crear plantilla de impresión
-        printPhotos.innerHTML = '';
+        // Generar la plantilla de impresión en un contenedor temporal
+        const printContainer = document.createElement('div');
+        printContainer.id = 'print-container';
+        printContainer.style.display = 'grid';
+        printContainer.style.gridTemplateColumns = 'repeat(3, 2in)';
+        printContainer.style.gridTemplateRows = 'repeat(2, 2in)';
         
-        // Crear contenedor para las fotos
-        const container = document.createElement('div');
-        container.style.width = '6in';
-        container.style.height = '4in';
-        container.style.display = 'grid';
-        container.style.gridTemplateColumns = 'repeat(3, 2in)';
-        container.style.gridTemplateRows = 'repeat(2, 2in)';
-        container.style.gap = '0';
-        container.style.padding = '0';
-        container.style.margin = '0';
-        
-        // Añadir las fotos
-        for (let i = 0; i < 6; i++) {
-            if (currentPhotos[i]) {
-                const photoDiv = document.createElement('div');
-                photoDiv.style.width = '2in';
-                photoDiv.style.height = '2in';
-                photoDiv.style.display = 'flex';
-                photoDiv.style.alignItems = 'center';
-                photoDiv.style.justifyContent = 'center';
-                photoDiv.style.overflow = 'hidden';
-                
-                const img = document.createElement('img');
-                img.src = currentPhotos[i];
-                img.style.maxWidth = '100%';
-                img.style.maxHeight = '100%';
-                img.style.objectFit = 'contain';
-                
-                photoDiv.appendChild(img);
-                container.appendChild(photoDiv);
-            }
-        }
-        
-        printPhotos.appendChild(container);
+        currentPhotos.forEach(photoSrc => {
+            const img = document.createElement('img');
+            img.src = photoSrc;
+            printContainer.appendChild(img);
+        });
+
+        document.body.appendChild(printContainer);
         
         // Imprimir
         window.print();
+        
+        // Eliminar la plantilla temporal después de la impresión
+        setTimeout(() => {
+            document.body.removeChild(printContainer);
+        }, 1000);
     }
     
     // Inicializar
